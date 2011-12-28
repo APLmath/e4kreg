@@ -9,7 +9,7 @@ Author URI: http://andrewlee.info
 License: GPL
 */
 
-require_once('includes/admin.php');
+require('includes/admin.php');
 
 register_activation_hook(__FILE__, 'e4kreg_activate');
 register_deactivation_hook(__FILE__, 'e4kreg_deactivate');
