@@ -44,19 +44,19 @@ function e4kreg_admin_page() {
     <tr valign="top">
       <th scope="row">Gmail username</th>
       <td><input type="text" name="e4kreg_g_user"
-           value="<?php echo get_option('e4k_g_user'); ?>" />
+           value="<?php echo get_option('e4kreg_g_user'); ?>" />
       </td>
     </tr>
     <tr valign="top">
       <th scope="row">Gmail password</th>
       <td><input type="text" name="e4kreg_g_pass"
-           value="<?php echo get_option('e4k_g_pass'); ?>" />
+           value="<?php echo get_option('e4kreg_g_pass'); ?>" />
       </td>
     </tr>
     <tr valign="top">
       <th scope="row">Google Spreadsheet Key</th>
       <td><input type="text" name="e4kreg_g_spreadsheet"
-           value="<?php echo get_option('e4k_g_spreadsheet'); ?>" />
+           value="<?php echo get_option('e4kreg_g_spreadsheet'); ?>" />
       </td>
     </tr>
   </table>
