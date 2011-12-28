@@ -55,9 +55,6 @@ function e4kreg_admin_page() {
   <?php settings_fields('e4kreg-settings-group'); ?>
   <?php do_settings('e4kreg-settings-group'); ?>
   <table class="form-table">
-    <tr valing="top">
-      <td colspan="2"><h4>Authentication</h4></td>
-    </tr>
     <tr valign="top">
       <th scope="row">Gmail username</th>
       <td><input type="text" name="e4kreg_g_user"
@@ -77,6 +74,11 @@ function e4kreg_admin_page() {
       </td>
     </tr>
   </table>
+
+  <p class="submit">
+    <input type="submit" class="button-primary"
+     value="<?php _e('Save Changes'); ?>" />
+  </p>
 </form>
 </div>
 <?php
