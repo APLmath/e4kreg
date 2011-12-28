@@ -53,7 +53,7 @@ function e4kreg_admin_page() {
 <h2>E4K Registration Settings</h2>
 <form method="post" action="options.php">
   <?php settings_fields('e4kreg-settings-group'); ?>
-  <?php do_settings('e4kreg-settings-group'); ?>
+  <h4>Google Settings</h4>
   <table class="form-table">
     <tr valign="top">
       <th scope="row">Gmail username</th>
