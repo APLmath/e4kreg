@@ -16,9 +16,6 @@ $e4kreg_options = array(
   'e4kreg_g_spreadsheet' => '12345'
 );
 
-register_activation_hook(__FILE__, 'e4kreg_activate');
-register_deactivation_hook(__FILE__, 'e4kreg_deactivate');
-
 function e4kreg_activate() {
   foreach ($e4kreg_options as $option_name => $default) {
     add_option($option_name, $default);
@@ -31,20 +28,16 @@ function e4kreg_deactivate() {
   }
 }
 
-if (is_admin()) {
-  add_action('admin_menu', 'e4kreg_admin_menu');
-
-  function e4kreg_admin_menu() {
-    add_options_page('E4K Registration Settings', 'E4K Registration',
-      'administrator', 'e4k-reg', 'e4kreg_admin_page');
-    add_action('admin_init', 'e4kreg_register_settings');
-  }
-}
-
 function e4kreg_register_settings() {
   foreach ($e4kreg_options as $option_name => $default) {
     register_setting('e4kreg-settings-group', $option_name);
   }
+}
+
+function e4kreg_admin_menu() {
+  add_options_page('E4K Registration Settings', 'E4K Registration',
+    'administrator', 'e4k-reg', 'e4kreg_admin_page');
+  add_action('admin_init', 'e4kreg_register_settings');
 }
 
 function e4kreg_admin_page() {
@@ -84,3 +77,10 @@ function e4kreg_admin_page() {
 <?php
 }
 ?>
+
+register_activation_hook(__FILE__, 'e4kreg_activate');
+register_deactivation_hook(__FILE__, 'e4kreg_deactivate');
+
+if (true or is_admin()) {
+  add_action('admin_menu', 'e4kreg_admin_menu');
+}
