@@ -54,20 +54,29 @@ function e4kreg_admin_page() {
 <form method="post" action="options.php">
   <?php settings_fields('e4kreg-settings-group'); ?>
   <?php do_settings('e4kreg-settings-group'); ?>
-  <h4>Authentication</h4>
-  <p><label for="e4kreg_g_user">Gmail username</label></p>
-  <p><input type="text" id="e4kreg_g_user" name="e4kreg_g_user"
-      value="<?php echo get_option('e4kreg_g_user'); ?>" /></p>
-  <p><label for="e4kreg_g_user">Gmail password</label></p>
-  <p><input type="text" id="e4kreg_g_pass" name="e4kreg_g_pass"
-      value="<?php echo get_option('e4kreg_g_pass'); ?>" /></p>
-  <p><label for="e4kreg_g_spreadsheet">Google Spreadsheet Key</label></p>
-  <p><input type="text" id="e4kreg_g_spreadsheet" name="e4kreg_g_user"
-      value="<?php echo get_option('e4kreg_g_spreadsheet'); ?>" /></p>
-  <p class="submit">
-    <input type="submit" class="button-primary"
-     value="<?php _e('Save Changes'); ?>" />
-  </p>
+  <table class="form-table">
+    <tr valing="top">
+      <td colspan="2"><h4>Authentication</h4></td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">Gmail username</th>
+      <td><input type="text" name="e4kreg_g_user"
+           value="<?php echo get_option('e4k_g_user'); ?>" />
+      </td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">Gmail password</th>
+      <td><input type="text" name="e4kreg_g_pass"
+           value="<?php echo get_option('e4k_g_pass'); ?>" />
+      </td>
+    </tr>
+    <tr valign="top">
+      <th scope="row">Google Spreadsheet Key</th>
+      <td><input type="text" name="e4kreg_g_spreadsheet"
+           value="<?php echo get_option('e4k_g_spreadsheet'); ?>" />
+      </td>
+    </tr>
+  </table>
 </form>
 </div>
 <?php
