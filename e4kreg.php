@@ -9,32 +9,22 @@ Author URI: http://andrewlee.info
 License: GPL
 */
 
-// The E4KReg options and their default values
-$e4kreg_options = array(
-  'e4kreg_g_user' => 'user',
-  'e4kreg_g_pass' => 'pass',
-  'e4kreg_g_spreadsheet' => '12345'
-);
-
 function e4kreg_activate() {
-  global $e4kreg_options;
-  foreach ($e4kreg_options as $option_name => $default) {
-    add_option($option_name, $default);
-  }
+  add_option('e4kreg_g_user', 'user');
+  add_option('e4kreg_g_pass', 'pass');
+  add_option('e4kreg_g_spreadsheet', 'key');
 }
 
 function e4kreg_deactivate() {
-  global $e4kreg_options;
-  foreach ($e4kreg_options as $option_name => $default) {
-    delete_option($option_name);
-  }
+  delete_option('e4kreg_g_user');
+  delete_option('e4kreg_g_pass');
+  delete_option('e4kreg_g_spreadsheet');
 }
 
 function e4kreg_register_settings() {
-  global $e4kreg_options;
-  foreach ($e4kreg_options as $option_name => $default) {
-    register_setting('e4kreg-settings-group', $option_name);
-  }
+  register_setting('e4kreg-settings-group', 'e4kreg_g_user');
+  register_setting('e4kreg-settings-group', 'e4kreg_g_pass');
+  register_setting('e4kreg-settings-group', 'e4kreg_g_spreadsheet');
 }
 
 function e4kreg_admin_menu() {
