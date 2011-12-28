@@ -20,12 +20,14 @@ function e4kreg_activate() {
   foreach ($e4kreg_options as $option_name => $default) {
     add_option($option_name, $default);
   }
+  add_option('e4ke4ke4k', 'come on....');
 }
 
 function e4kreg_deactivate() {
   foreach ($e4kreg_options as $option_name => $default) {
     delete_option($option_name);
   }
+  delete_option('e4ke4ke4k');
 }
 
 function e4kreg_register_settings() {
