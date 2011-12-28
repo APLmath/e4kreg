@@ -73,7 +73,7 @@ function e4kreg_admin_page() {
      value="<?php _e('Save Changes'); ?>" />
   </p>
 </form>
-<?php echo $e4kreg_options; ?>
+<p>Hello? Here it is: (<?php echo $e4kreg_options; ?>)</p>
 </div>
 <?php
 }
