@@ -37,7 +37,7 @@ if (is_admin()) {
   function e4kreg_admin_menu() {
     add_options_page('E4K Registration Settings', 'E4K Registration',
       'administrator', 'e4k-reg', 'e4kreg_admin_page');
-    add_action('admin_init', 'e4kreg_register_settings')
+    add_action('admin_init', 'e4kreg_register_settings');
   }
 }
 
@@ -57,16 +57,16 @@ function e4kreg_admin_page() {
   <h4>Authentication</h4>
   <p><label for="e4kreg_g_user">Gmail username</label></p>
   <p><input type="text" id="e4kreg_g_user" name="e4kreg_g_user"
-      value="<?php echo get_option('e4kreg_g_user') ?>" /></p>
+      value="<?php echo get_option('e4kreg_g_user'); ?>" /></p>
   <p><label for="e4kreg_g_user">Gmail password</label></p>
   <p><input type="text" id="e4kreg_g_pass" name="e4kreg_g_pass"
-      value="<?php echo get_option('e4kreg_g_pass') ?>" /></p>
+      value="<?php echo get_option('e4kreg_g_pass'); ?>" /></p>
   <p><label for="e4kreg_g_spreadsheet">Google Spreadsheet Key</label></p>
   <p><input type="text" id="e4kreg_g_spreadsheet" name="e4kreg_g_user"
-      value="<?php echo get_option('e4kreg_g_spreadsheet') ?>" /></p>
+      value="<?php echo get_option('e4kreg_g_spreadsheet'); ?>" /></p>
   <p class="submit">
     <input type="submit" class="button-primary"
-     value="<?php _e('Save Changes') ?>" />
+     value="<?php _e('Save Changes'); ?>" />
   </p>
 </form>
 </div>
