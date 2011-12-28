@@ -10,26 +10,29 @@ License: GPL
 */
 
 // The E4KReg options and their default values
-define('E4KREG_OPTIONS', array(
+$e4kreg_options = array(
   'e4kreg_g_user' => 'user',
   'e4kreg_g_pass' => 'pass',
   'e4kreg_g_spreadsheet' => '12345'
-));
+);
 
 function e4kreg_activate() {
-  foreach (E4KREG_OPTIONS as $option_name => $default) {
+  global $e4kreg_options;
+  foreach ($e4kreg_options as $option_name => $default) {
     add_option($option_name, $default);
   }
 }
 
 function e4kreg_deactivate() {
-  foreach (E4KREG_OPTIONS as $option_name => $default) {
+  global $e4kreg_options;
+  foreach ($e4kreg_options as $option_name => $default) {
     delete_option($option_name);
   }
 }
 
 function e4kreg_register_settings() {
-  foreach (E4KREG_OPTIONS as $option_name => $default) {
+  global $e4kreg_options;
+  foreach ($e4kreg_options as $option_name => $default) {
     register_setting('e4kreg-settings-group', $option_name);
   }
 }
@@ -73,7 +76,6 @@ function e4kreg_admin_page() {
      value="<?php _e('Save Changes'); ?>" />
   </p>
 </form>
-<p>Hello? Here it is: (<?php echo E4KREG_OPTIONS; ?>)</p>
 </div>
 <?php
 }
