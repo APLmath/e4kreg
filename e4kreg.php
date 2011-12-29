@@ -143,7 +143,27 @@ function e4kreg_admin_page() {
 }
 
 /*
-Where the actions starts.
+Google spreadsheet client
+*/
+
+function e4kreg_get_spreadsheet_service() {
+  require_once('Zend/Loader.php');
+  Zend_Loader::loadClass('Zend_Http_Client');
+  Zend_Loader::loadClass('Zend_Gdata');
+  Zend_Loader::loadClass('Zend_Gdata_ClientLogin');
+  Zend_Loader::loadClass('Zend_Gdata_Spreadsheets');
+  
+  $service = Zend_Gdata_Spreadsheets::AUTH_SERVICE_NAME;
+  $g_user = get_option('e4kreg_g_user');
+  $g_pass = get_option('e4kreg_g_pass');
+  $client = Zend_Gdata_ClientLogin::getHttpClient($g_user, $g_pass, $service);
+  $spreadsheetService = new Zend_Gdata_Spreadsheets($client);
+  
+  return $spreadsheetService;
+}
+
+/*
+Where the action starts.
 */
 
 register_activation_hook(__FILE__, 'e4kreg_activate');
