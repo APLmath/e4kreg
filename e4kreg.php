@@ -73,7 +73,7 @@ function e4kreg_admin_page() {
     </tr>
     <tr valign="top">
       <th scope="row">Gmail password</th>
-      <td><input type="text" name="e4kreg_g_pass"
+      <td><input type="password" name="e4kreg_g_pass"
            value="<?php echo get_option('e4kreg_g_pass'); ?>" />
       </td>
     </tr>
@@ -153,13 +153,18 @@ function e4kreg_get_spreadsheet_service() {
   Zend_Loader::loadClass('Zend_Gdata_ClientLogin');
   Zend_Loader::loadClass('Zend_Gdata_Spreadsheets');
   
-  $service = Zend_Gdata_Spreadsheets::AUTH_SERVICE_NAME;
-  $g_user = get_option('e4kreg_g_user');
-  $g_pass = get_option('e4kreg_g_pass');
-  $client = Zend_Gdata_ClientLogin::getHttpClient($g_user, $g_pass, $service);
-  $spreadsheetService = new Zend_Gdata_Spreadsheets($client);
+  try {
+    $service = Zend_Gdata_Spreadsheets::AUTH_SERVICE_NAME;
+    $g_user = get_option('e4kreg_g_user');
+    $g_pass = get_option('e4kreg_g_pass');
+    $client = Zend_Gdata_ClientLogin::getHttpClient($g_user, $g_pass, $service);
+    $spreadsheetService = new Zend_Gdata_Spreadsheets($client);
   
-  return $spreadsheetService;
+    return $spreadsheetService;
+  }
+  catch (Exception $e) {
+    return false;
+  }
 }
 
 /*
